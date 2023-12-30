@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_navigation"
+    app:startDestination="@id/mainMenuFragment">
+
+    <fragment
+        android:id="@+id/mainMenuFragment"
+        android:name="com.example.myonedollargame.MainMenuFragment"
+        android:label="fragment_main_menu"
+        tools:layout="@layout/fragment_main_menu" >
+
+        <action
+            android:id="@+id/action_mainMenuFragment_to_gameSettings"
+            app:destination="@id/gameSettings" />
+        <action
+            android:id="@+id/action_mainMenuFragment_to_gamePlay"
+            app:destination="@id/gamePlay" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameSettings"
+        android:name="com.example.myonedollargame.GameSettings"
+        android:label="fragment_game_settings"
+        tools:layout="@layout/fragment_game_settings" />
+    <fragment
+        android:id="@+id/gamePlay"
+        android:name="com.example.myonedollargame.GamePlay"
+        android:label="fragment_game_play"
+        tools:layout="@layout/fragment_game_play" >
+        <action
+            android:id="@+id/action_gamePlay_to_level1fragment"
+            app:destination="@id/level1fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/level1fragment"
+        android:name="com.example.myonedollargame.level1fragment"
+        android:label="fragment_level1fragment"
+        tools:layout="@layout/fragment_level1fragment" >
+        <action
+            android:id="@+id/action_level1fragment_to_level2fragment"
+            app:destination="@id/level2fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/level2fragment"
+        android:name="com.example.myonedollargame.level2fragment"
+        android:label="fragment_level2fragment"
+        tools:layout="@layout/fragment_level2fragment" >
+        <action
+            android:id="@+id/action_level2fragment_to_level3fragment"
+            app:destination="@id/level3fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/level3fragment"
+        android:name="com.example.myonedollargame.level3fragment"
+        android:label="fragment_level3fragment"
+        tools:layout="@layout/fragment_level3fragment" />
+</navigation>
