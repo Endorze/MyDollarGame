@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_mainMenuFragment_to_gamePlay"
             app:destination="@id/gamePlay" />
+        <action
+            android:id="@+id/action_mainMenuFragment_to_victorychapter1fragment"
+            app:destination="@id/victorychapter1fragment" />
     </fragment>
     <fragment
         android:id="@+id/gameSettings"
@@ -54,5 +57,23 @@
         android:id="@+id/level3fragment"
         android:name="com.example.myonedollargame.level3fragment"
         android:label="fragment_level3fragment"
-        tools:layout="@layout/fragment_level3fragment" />
+        tools:layout="@layout/fragment_level3fragment" >
+        <action
+            android:id="@+id/action_level3fragment_to_level4fragment"
+            app:destination="@id/level4fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/level4fragment"
+        android:name="com.example.myonedollargame.level4fragment"
+        android:label="fragment_level4fragment"
+        tools:layout="@layout/fragment_level4fragment" >
+        <action
+            android:id="@+id/action_level4fragment_to_victorychapter1fragment"
+            app:destination="@id/victorychapter1fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/victorychapter1fragment"
+        android:name="com.example.myonedollargame.victorychapter1fragment"
+        android:label="fragment_victorychapter1fragment"
+        tools:layout="@layout/fragment_victorychapter1fragment" />
 </navigation>

@@ -1,10 +1,13 @@
 package com.example.myonedollargame
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
+import androidx.navigation.Navigation
 import com.example.myonedollargame.databinding.FragmentLevel1fragmentBinding
 
 
@@ -17,34 +20,46 @@ class level1fragment : Fragment() {
     ): View? {
         binding = FragmentLevel1fragmentBinding.inflate(layoutInflater)
         var level = LogicLevel()
+        binding.victoryLayout.isVisible = false
 
         updateText()
         binding.node1Button.setOnClickListener{
             node1.click()
             updateText()
-            checkWin()
+            if (checkWin()) {
+                victory()
+            }
+
         }
         binding.node2Button.setOnClickListener{
             node2.click()
             updateText()
             if (checkWin()) {
-
+                victory()
             }
         }
         binding.node3Button.setOnClickListener{
             node3.click()
             updateText()
             checkWin()
+            if (checkWin()) {
+                victory()
+            }
         }
         binding.node4Button.setOnClickListener{
             node4.click()
             updateText()
             checkWin()
+            if (checkWin()) {
+                victory()
+            }
         }
         binding.node5Button.setOnClickListener{
             node5.click()
             updateText()
-            checkWin()
+            if (checkWin()) {
+                victory()
+            }
         }
 
 
@@ -79,7 +94,14 @@ class level1fragment : Fragment() {
                 return false
             }
         }
-
+        Log.i("checkWin", "True, should be winning")
         return true
+    }
+    fun victory() {
+            binding.victoryLayout.isVisible = true
+            binding.victoryButton.setOnClickListener {
+                val action = level1fragmentDirections.actionLevel1fragmentToLevel2fragment()
+                Navigation.findNavController(binding.root).navigate(action)
+        }
     }
 }

@@ -5,55 +5,98 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
+import androidx.navigation.Navigation
+import com.example.myonedollargame.databinding.FragmentLevel1fragmentBinding
+import com.example.myonedollargame.databinding.FragmentLevel2fragmentBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [level2fragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class level2fragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+    private lateinit var binding: FragmentLevel2fragmentBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_level2fragment, container, false)
+        binding = FragmentLevel2fragmentBinding.inflate(layoutInflater)
+        var level = LogicLevel()
+        updateText()
+        binding.victoryLayout.isVisible = false
+
+
+
+       binding.node1Button.setOnClickListener {
+           node1.click()
+           updateText()
+           if (checkWin()) {
+               victory()
+           }
+       }
+       binding.node2Button.setOnClickListener {
+           node2.click()
+           updateText()
+           if (checkWin()) {
+               victory()
+           }
+       }
+       binding.node3Button.setOnClickListener {
+           node3.click()
+           updateText()
+           if (checkWin()) {
+               victory()
+           }
+       }
+       binding.node4Button.setOnClickListener {
+           node4.click()
+           updateText()
+           if (checkWin()) {
+               victory()
+           }
+       }
+       binding.node5Button.setOnClickListener {
+           node5.click()
+           updateText()
+           if (checkWin()) {
+               victory()
+           }
+       }
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment level2fragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            level2fragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    val level = LogicLevel()
+    val node1 = level.makeNode(-2)
+    val node2 = level.makeNode(0)
+    val node3 = level.makeNode(3)
+    val node4 = level.makeNode(3)
+    val node5 = level.makeNode(-3)
+
+    init {
+        level.connectNodes(node1, node3)
+        level.connectNodes(node1, node2)
+        level.connectNodes(node3, node4)
+        level.connectNodes(node4, node5)
+        level.connectNodes(node2, node5)
+    }
+
+   fun updateText() {
+       binding.node1Button.text = node1.value.toString()
+       binding.node2Button.text = node2.value.toString()
+       binding.node3Button.text = node3.value.toString()
+       binding.node4Button.text = node4.value.toString()
+       binding.node5Button.text = node5.value.toString()
+   }
+
+    fun checkWin(): Boolean {
+        for (connections in level.nodeList) {
+            if (connections.value < 0) {
+                return false
             }
+        }
+        return true
+    }
+    fun victory() {
+        binding.victoryLayout.isVisible = true
+        binding.victoryButton.setOnClickListener {
+            val action = level2fragmentDirections.actionLevel2fragmentToLevel3fragment()
+            Navigation.findNavController(binding.root).navigate(action)
+        }
     }
 }

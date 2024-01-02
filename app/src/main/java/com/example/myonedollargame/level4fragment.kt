@@ -7,17 +7,26 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.navigation.Navigation
-import com.example.myonedollargame.databinding.FragmentLevel1fragmentBinding
-import com.example.myonedollargame.databinding.FragmentLevel2fragmentBinding
 import com.example.myonedollargame.databinding.FragmentLevel3fragmentBinding
+import com.example.myonedollargame.databinding.FragmentLevel4fragmentBinding
 
-class level3fragment : Fragment() {
-    private lateinit var binding: FragmentLevel3fragmentBinding
+// TODO: Rename parameter arguments, choose names that match
+// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+private const val ARG_PARAM1 = "param1"
+private const val ARG_PARAM2 = "param2"
+
+/**
+ * A simple [Fragment] subclass.
+ * Use the [level4fragment.newInstance] factory method to
+ * create an instance of this fragment.
+ */
+class level4fragment : Fragment() {
+    private lateinit var binding: FragmentLevel4fragmentBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentLevel3fragmentBinding.inflate(layoutInflater)
+        binding = FragmentLevel4fragmentBinding.inflate(layoutInflater)
         var level = LogicLevel()
         updateText()
         binding.victoryLayout.isVisible = false
@@ -66,6 +75,14 @@ class level3fragment : Fragment() {
                 victory()
             }
         }
+
+        binding.node7Button.setOnClickListener {
+            node7.click()
+            updateText()
+            if (checkWin()) {
+                victory()
+            }
+        }
         return binding.root
     }
 
@@ -76,6 +93,7 @@ class level3fragment : Fragment() {
     val node4 = level.makeNode(3)
     val node5 = level.makeNode(-3)
     val node6 = level.makeNode(4)
+    val node7 = level.makeNode(-1)
 
     init {
         level.connectNodes(node1, node3)
@@ -84,6 +102,7 @@ class level3fragment : Fragment() {
         level.connectNodes(node2, node3)
         level.connectNodes(node2, node5)
         level.connectNodes(node6, node3)
+        level.connectNodes(node7, node1)
     }
 
     fun updateText() {
@@ -93,6 +112,7 @@ class level3fragment : Fragment() {
         binding.node4Button.text = node4.value.toString()
         binding.node5Button.text = node5.value.toString()
         binding.node6Button.text = node6.value.toString()
+        binding.node7Button.text = node7.value.toString()
     }
 
     fun checkWin(): Boolean {
@@ -104,9 +124,10 @@ class level3fragment : Fragment() {
         return true
     }
     fun victory() {
+        binding.victoryButton.text = "Finish Chapter"
         binding.victoryLayout.isVisible = true
         binding.victoryButton.setOnClickListener {
-            val action = level3fragmentDirections.actionLevel3fragmentToLevel4fragment()
+            val action = level4fragmentDirections.actionLevel4fragmentToVictorychapter1fragment()
             Navigation.findNavController(binding.root).navigate(action)
         }
     }

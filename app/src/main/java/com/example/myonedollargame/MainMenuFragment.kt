@@ -30,5 +30,9 @@ class MainMenuFragment : Fragment() {
             val action = MainMenuFragmentDirections.actionMainMenuFragmentToGamePlay()
             Navigation.findNavController(binding.root).navigate(action)
         }
+        binding.settingsButton.setOnClickListener {
+            val action = MainMenuFragmentDirections.actionMainMenuFragmentToVictorychapter1fragment()
+            Navigation.findNavController(binding.root).navigate(action)
+        }
     }
 }

@@ -1,14 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".level2fragment">
+    tools:context=".level1fragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <Button
+        android:id="@+id/node1Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="@+id/node4Button"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/node4Button"
+        app:layout_constraintTop_toBottomOf="@+id/node4Button" />
+
+    <Button
+        android:id="@+id/node2Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="@+id/node4Button"
+        app:layout_constraintStart_toEndOf="@+id/node4Button"
+        app:layout_constraintTop_toTopOf="@+id/node4Button"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/node3Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="@+id/node2Button"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/node2Button"
+        app:layout_constraintTop_toBottomOf="@+id/node2Button" />
+
+    <Button
+        android:id="@+id/node4Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="8dp"
+        android:text=""
+        app:layout_constraintEnd_toStartOf="@+id/node5Button"
+        app:layout_constraintTop_toBottomOf="@+id/node5Button" />
+
+    <Button
+        android:id="@+id/node5Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.263" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/imageFilterView"
+        android:layout_width="180dp"
+        android:layout_height="94dp"
+        android:rotation="60"
+        android:src="@drawable/doublesidedarrow"
+        app:layout_constraintBottom_toTopOf="@+id/node2Button"
+        app:layout_constraintEnd_toStartOf="@+id/node2Button"
+        app:layout_constraintHorizontal_bias="0.375"
+        app:layout_constraintStart_toEndOf="@+id/node5Button"
+        app:layout_constraintTop_toBottomOf="@+id/node5Button"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/imageFilterView4"
+        android:layout_width="96dp"
+        android:layout_height="84dp"
+        android:src="@drawable/doublesidedarrow"
+        app:layout_constraintBottom_toBottomOf="@+id/node3Button"
+        app:layout_constraintEnd_toStartOf="@+id/node3Button"
+        app:layout_constraintStart_toEndOf="@+id/node1Button"
+        app:layout_constraintTop_toTopOf="@+id/node1Button"
+        app:layout_constraintVertical_bias="0.55" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/imageFilterView3"
+        android:layout_width="162dp"
+        android:layout_height="148dp"
+        android:rotation="-45"
+        android:src="@drawable/doublesidedarrow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/node2Button"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="@+id/node1Button"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.591" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/imageFilterView5"
+        android:layout_width="162dp"
+        android:layout_height="148dp"
+        android:rotation="45"
+        android:src="@drawable/doublesidedarrow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/node3Button"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="@+id/node1Button"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.591" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/imageFilterView2"
+        android:layout_width="113dp"
+        android:layout_height="88dp"
+        android:layout_marginEnd="220dp"
+        android:rotation="-60"
+        android:src="@drawable/doublesidedarrow"
+        app:layout_constraintBottom_toTopOf="@+id/node4Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/node5Button"
+        app:layout_constraintVertical_bias="0.784" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/victoryLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corners"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.925">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="10dp"
+            android:text="You beat this level!"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/victoryButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="Next level" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

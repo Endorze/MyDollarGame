@@ -57,10 +57,10 @@
         android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.517"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.263" />
+        app:layout_constraintVertical_bias="0.087" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/imageFilterView"
@@ -75,6 +75,7 @@
         app:layout_constraintVertical_bias="0.611" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/imageFilterView8"
         android:layout_width="74dp"
         android:layout_height="73dp"
         android:src="@drawable/doublesidedarrow"
@@ -93,6 +94,33 @@
         app:layout_constraintEnd_toEndOf="@+id/node2Button"
         app:layout_constraintStart_toStartOf="@+id/node2Button"
         app:layout_constraintTop_toBottomOf="@+id/node2Button" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/imageFilterView6"
+        android:layout_width="127dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="8dp"
+        android:rotation="90"
+        android:src="@drawable/doublesidedarrow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/node3Button"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="@+id/node3Button"
+        app:layout_constraintTop_toBottomOf="@+id/node3Button"
+        app:layout_constraintVertical_bias="0.012" />
+
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/imageFilterView7"
+        android:layout_width="127dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="8dp"
+        android:rotation="90"
+        android:src="@drawable/doublesidedarrow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/node1Button"
+        app:layout_constraintStart_toStartOf="@+id/node1Button"
+        app:layout_constraintTop_toBottomOf="@+id/node1Button"
+        app:layout_constraintVertical_bias="0.012" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:layout_width="127dp"
@@ -114,6 +142,28 @@
         app:layout_constraintStart_toEndOf="@+id/node4Button"
         app:layout_constraintTop_toTopOf="@+id/node2Button" />
 
+    <Button
+        android:id="@+id/node6Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageFilterView6"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="@+id/imageFilterView6"
+        app:layout_constraintTop_toBottomOf="@+id/imageFilterView6"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/node7Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageFilterView7"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="@+id/imageFilterView7"
+        app:layout_constraintTop_toBottomOf="@+id/imageFilterView7"
+        app:layout_constraintVertical_bias="0.015" />
+
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/victoryLayout"
         android:layout_width="wrap_content"
@@ -127,19 +177,21 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.925">
 
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingHorizontal="10dp"
             android:paddingVertical="10dp"
-            android:textStyle="bold"
-            android:text="You beat this level!" />
+            android:text="You beat this level!"
+            android:textStyle="bold" />
+
 
         <Button
             android:id="@+id/victoryButton"
-            android:layout_marginBottom="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:text="Next level" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>

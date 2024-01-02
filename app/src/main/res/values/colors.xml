@@ -3,4 +3,12 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="colorTransparent">#00ffffff</color>
+    <color name="gradientStart">#6EBCF0</color>
+    <color name="gradientCenter">#29F0BE</color>
+    <color name="gradientEnd">#B6B4ED</color>
+
+    <color name="colorStripeStart">#4D92ADF0</color>
+    <color name="colorStripeEnd">#4D4FE2F0</color>
+
+
 </resources>
